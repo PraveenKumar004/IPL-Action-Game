@@ -1,0 +1,150 @@
+.task-list {
+    width: 95%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-search-filter {
+    width: 100%;
+    justify-content: start;
+    padding-left: 2.5%;
+}
+
+.task-search {
+    width: 250px;
+    padding: 3px;
+    text-indent: 2px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: none;
+    border: 2px solid #1b1f235d;
+}
+
+.task-btn {
+    width: 110px;
+    border-radius: 20px;
+    padding: 5px;
+    border: none;
+    background-color: #0051ad;
+    color: #ffffff;
+    margin-left: 18px;
+}
+
+.tasks-body {
+    width: 96%;
+}
+
+.task_title {
+    width: 100%;
+    border-bottom: 2px solid #1b1f231b;
+}
+
+.task_body_title {
+    width: 100%;
+    border-bottom: 1px solid #1b1f231b;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title-h1,
+.title-h2,
+.title-h3,
+.title-h4,
+.title-h5 {
+    width: 210px;
+    font-size: 16px;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.title-select,
+.title-select-2 {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.title-select-2 {
+    width: 30px;
+    font-size: 22.5px;
+}
+
+.task-inside-body {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #1b1f231b;
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+.task-inside-body-2 {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #1b1f231b;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.title-c1,
+.title-c2,
+.title-c3,
+.title-c4,
+.title-c5,.title-0 {
+    width: 210px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.task-inside-body:hover {
+    background-color: #0000000c;
+}
+
+.task-inside-body-mobile {
+    display: none;
+}
+
+
+@media screen and (max-width:1000px) {
+    .task-btn {
+        margin-left: 7px;
+    }
+
+    .task-inside-body,
+    .task_body_title, .task-inside-body-2 {
+        display: none;
+    }
+
+    .task-inside-body-mobile {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 1px solid #1b1f231b;
+    }
+
+    .task-inside-body-mobile:hover {
+        background-color: #0000000c;
+    }
+
+    .mobile-c1 {
+        font-size: 14px;
+        font-weight: 500;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+}

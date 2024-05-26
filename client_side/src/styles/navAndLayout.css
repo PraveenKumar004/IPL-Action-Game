@@ -1,0 +1,100 @@
+* {}
+
+.topnav {
+    height: 8vh;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px 0px; 
+}
+
+.top-position {
+    position: sticky;
+    top: 0;
+}
+
+.bar {
+    display: none;
+    font-size: 19px;
+    padding: 5px;
+    cursor: pointer;
+}
+.bar:hover{
+    border: 2px solid #1b1f236d;
+    border-radius:5px ;
+}
+
+.title {
+    width: 260px;
+    border-right: 1px solid #1b1f2326;
+    padding-left: 30px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.tophead {
+    padding-left: 30px;
+}
+
+.sidenav {
+    width: 260px;
+    min-height: 92vh;
+    max-height: 100%;
+    border-right: 1.5px solid rgba(27, 31, 35, 0.15);
+}
+.inside-sidenav{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 3px;
+}
+.sidenav-links{
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1b1f23f0;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 5px;
+}
+.active{
+    background-color: #1b1f2326;
+    border-left: 5px solid #1b1f23d2;
+    padding-left: 15px;
+}
+.sidenav-links:hover{
+    background-color: #1b1f2326;
+}
+
+.side-position {
+    position: fixed;
+}
+
+.main {
+    margin-left: 260px;
+    overflow-y: hidden;
+    background: #f4f4f4;
+    width: 100%;
+    min-height: 92vh;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width:900px) {
+
+    .side-position,
+    .title {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0px;
+    }
+
+    .bar {
+        display: block;
+    }
+
+    .offcanva {}
+}
