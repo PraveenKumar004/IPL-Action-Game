@@ -62,7 +62,7 @@ function Home() {
             if (create.data === "exist") {
                 alert("Already Exist");
             } else {
-                alert("Done");
+                window.location.reload();
             }
         } catch (err) {
             console.log(err);

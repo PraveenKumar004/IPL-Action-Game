@@ -62,6 +62,12 @@ function Home() {
                         <select className='home-modal-input' placeholder='Enter Country Short' name='countryshort' onChange={input} >
                             <option>Select ShortForm</option>
                             <option>IND</option>
+                            <option>AUS</option>
+                            <option>WI</option>
+                            <option>SA</option>
+                            <option>NZ</option>
+                            <option>ENG</option>
+                            <option>IRE</option>
                         </select>
                         <select className='home-modal-input' placeholder='Enter Category' name='category' onChange={input} >
                             <option>Select Category</option>
@@ -69,7 +75,11 @@ function Home() {
                             <option>BOWL</option>
                             <option>ALL</option>
                         </select>
-                        <input className='home-modal-input' placeholder='Enter Nation' name='nation' onChange={input} />
+                        <select className='home-modal-input' placeholder='Enter Nation' name='nation' onChange={input} >
+                            <option>Select Nationality</option>
+                            <option>Indian</option>
+                            <option>Foreign</option>
+                        </select>
                         <input className='home-modal-input' placeholder='Enter Base Price' name='baseprice' onChange={input} />
                         <input className='home-modal-input' placeholder='Enter Points' name='points' onChange={input} />
                         <button onClick={addplayer} className='home-btn' style={{ width: '150px', fontSize: '16px' }}>Add</button>

@@ -12,9 +12,9 @@ const SideNav = () => {
           <NavLink className='sidenav-links d-flex' to='/'>
             <div><MdDashboard /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Home</div>
           </NavLink>
-          {/* <NavLink className='sidenav-links d-flex' to='/playerlist'>
-            <div><BsFillPeopleFill /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Player List</div>
-          </NavLink> */}
+          <NavLink className='sidenav-links d-flex' to='/playerlist'>
+            <div><MdDashboard /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Player List</div>
+          </NavLink>
         </div>
       </div>
     </>
