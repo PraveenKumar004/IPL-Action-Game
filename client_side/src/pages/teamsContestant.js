@@ -13,9 +13,15 @@ function Home() {
     const [teams, setTeams] = useState([]);
     const [players, setPlayers] = useState({});
 
+    const verifysession = sessionStorage.getItem("id");
+
     useEffect(() => {
+        if (verifysession !== id) {
+            navigate('/');
+            return;
+        }
         getTeams();
-    }, []);
+    }, [verifysession, id]);
 
     useEffect(() => {
         if (teams.length > 0) {
@@ -36,7 +42,7 @@ function Home() {
         try {
             const response = await axios.get(`http://localhost:5000/getsoldplayersbypid/${mid}`);
             const playersByTeam = response.data.reduce((acc, player) => {
-                const teamId = player.pid; 
+                const teamId = player.pid;
                 if (!acc[teamId]) {
                     acc[teamId] = [];
                 }
@@ -51,7 +57,7 @@ function Home() {
 
     return (
         <>
-            <div className='top-position'><TopNav Title={"Teams"}/></div>
+            <div className='top-position'><TopNav Title={"Teams"} /></div>
             <div className='d-flex'>
                 <div className='side-position'><SideNav /></div>
                 <div className='main'>
@@ -67,7 +73,7 @@ function Home() {
                                 </div>
                                 {players[team._id] ? (
                                     players[team._id].map(player => (
-                                        <div  className='d-flex justify-content-evenly pt-2 pb-2' style={{ width: '90%', borderBottom: '1px solid #1b1f233f' }}>
+                                        <div className='d-flex justify-content-evenly pt-2 pb-2' style={{ width: '90%', borderBottom: '1px solid #1b1f233f' }}>
                                             <div>{player.name}-{player.category}</div>
                                             <div>{player.countryshort}</div>
                                             <div>{player.price} C</div>

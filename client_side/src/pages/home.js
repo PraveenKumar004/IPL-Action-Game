@@ -46,6 +46,7 @@ function Home() {
                 alert("Already Exist")
             }
             else {
+                sessionStorage.setItem("id", create.data);
                 navigate(`/manager/${create.data}`)
             };
         }
@@ -60,7 +61,8 @@ function Home() {
             const response = await axios.post('http://localhost:5000/verifymanager', data);
             if (response.data === "wrong") {
                 alert("Enter Valid ID and Password");
-            } else {     
+            } else {
+                sessionStorage.setItem("id", response.data);
                 navigate(`/manager/${response.data}`);
             }
         } catch (err) {
@@ -71,10 +73,11 @@ function Home() {
     const verifyContest = async () => {
         try {
             console.log(data);
-            const response = await axios.post( `http://localhost:5000/managercontestant`,data);
+            const response = await axios.post(`http://localhost:5000/managercontestant`, data);
             if (response.data === "managernot") {
                 alert("Enter Valid Room ID ");
-            } else {     
+            } else {
+                sessionStorage.setItem("id", response.data._id);
                 navigate(`/teampreview/${response.data._id}`);
             }
         } catch (err) {
@@ -118,8 +121,8 @@ function Home() {
                         <Modal.Title>Existing Game</Modal.Title>
                     </Modal.Header>
                     <div className='d-flex flex-column home-modal mt-3 mb-3'>
-                        <input className='home-modal-input' placeholder='Enter ID' name='id' onChange={input}/>
-                        <input className='home-modal-input' placeholder='Enter Password' name='password' onChange={input}/>
+                        <input className='home-modal-input' placeholder='Enter ID' name='id' onChange={input} />
+                        <input className='home-modal-input' placeholder='Enter Password' name='password' onChange={input} />
                         <button onClick={verifyManger} className='home-btn' style={{ width: '150px', fontSize: '16px' }}>Login</button>
                     </div>
                 </Modal>
@@ -128,7 +131,7 @@ function Home() {
                         <Modal.Title>Join Game</Modal.Title>
                     </Modal.Header>
                     <div className='d-flex flex-column home-modal mt-3 mb-3'>
-                        <input className='home-modal-input' placeholder='Enter ID' name='id' onChange={input}/>
+                        <input className='home-modal-input' placeholder='Enter ID' name='id' onChange={input} />
                         <button onClick={verifyContest} className='home-btn' style={{ width: '150px', fontSize: '16px' }}>Join</button>
                     </div>
                 </Modal>

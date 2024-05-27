@@ -12,9 +12,15 @@ function Home() {
     const [teams, setTeams] = useState([]);
     const [players, setPlayers] = useState({});
 
+    const verifysession = sessionStorage.getItem("id");
+
     useEffect(() => {
+        if (verifysession !== id) {
+            navigate('/');
+            return;
+        }
         getTeams();
-    }, []);
+    }, [verifysession,id]);
 
     useEffect(() => {
         if (teams.length > 0) {
@@ -48,6 +54,16 @@ function Home() {
         }
     };
 
+    const deletefunction = async(d)=>{
+        const del = await axios.post(`http://localhost:5000/deletcontest/${d}`);
+        if(del.data === "done"){
+            window.location.reload()
+        }
+        else{
+            alert("Can't Delete")
+        }
+    }
+
     return (
         <>
             <div className='top-position'><TopNav Title={"Teams"}/></div>
@@ -59,7 +75,7 @@ function Home() {
                             <div className='tasks' key={team._id} style={{ overflow: 'scroll', overflowX: 'hidden' }}>
                                 <div className='task-head mt-3 pb-2'>
                                     <div style={{ fontSize: '19px' }}>{team.teamName}</div>
-                                    <div style={{ fontSize: '15px' }}>Delete</div>
+                                    <div style={{ fontSize: '15px', cursor:'pointer' }} onClick={()=>{deletefunction(team._id)}}>Delete</div>
                                 </div>
                                 <div className='task-head d-flex flex-wrap mt-3 pb-2'>
                                     <div style={{ fontSize: '17px' }}>Remaining : {team.amount} C</div>

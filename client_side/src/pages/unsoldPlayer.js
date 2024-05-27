@@ -9,11 +9,19 @@ function Home() {
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const [teams, setTeams] = useState([]);
 
+  const verifysession = sessionStorage.getItem("id");
+
   useEffect(() => {
+    if (verifysession !== id) {
+      navigate('/');
+      return;
+    };
     getTeams();
-  }, [id]);
+  }, [id, verifysession]);
 
   const getTeams = async () => {
     try {
@@ -26,7 +34,7 @@ function Home() {
 
   return (
     <>
-      <div className='top-position'><TopNav Title={"Unsold Player"}/></div>
+      <div className='top-position'><TopNav Title={"Unsold Player"} /></div>
       <div className='d-flex'>
         <div className='side-position'><SideNav /></div>
         <div className='main'>

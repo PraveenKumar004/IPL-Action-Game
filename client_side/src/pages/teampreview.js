@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TopNav from '../components/topNavBarManager';
-import SideNav from '../components/sideNavBarManger';
+import SideNav from '../components/sideNavBarHome';
 import { Modal, Button } from 'react-bootstrap';
 import '../styles/manager.css';
 import axios from 'axios';
@@ -23,10 +23,16 @@ function Home() {
 
     const [teams, setTeams] = useState([]);
 
+    const verifysession = sessionStorage.getItem("id");
+
     useEffect(() => {
+        if (verifysession !== id) {
+            navigate('/');
+            return;
+        };
         getManager();
         getTeams();
-    }, []);
+    }, [id,verifysession]);
 
     const getManager = async () => {
         try {
@@ -75,6 +81,7 @@ function Home() {
             console.log(data)
             const create = await axios.post(`http://localhost:5000/verifycontestant/${e}`, data);
             if (create.data === "done") {
+                sessionStorage.setItem("id", e);
                 navigate(`/${id}/contestant/${e}`)
             } else {
                 alert("Wrong");

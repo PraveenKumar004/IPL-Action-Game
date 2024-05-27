@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TopNav from '../components/topNavBarManager'
-import SideNav from '../components/sideNavBarContestant'
+import SideNav from '../components/sideNavBarHome'
 import '../styles/select.css'
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -8,18 +8,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 function Home() {
 
     const [players, setPlayers] = useState();
-    const { id } = useParams();
-    const { mid } = useParams();
-    const navigate = useNavigate();
-    const verifysession = sessionStorage.getItem("id");
 
     useEffect(() => {
-        if (verifysession !== id) {
-            navigate('/');
-            return;
-        }
+        
+
         getPlayers();
-    }, [id,verifysession]);
+    }, []);
 
     const getPlayers = async () => {
         try {
@@ -32,7 +26,7 @@ function Home() {
 
     return (
         <>
-            <div className='top-position'><TopNav Title={"Player List"} /></div>
+            <div className='top-position'><TopNav Title={"Player List"}/></div>
             <div className='d-flex'>
                 <div className='side-position'><SideNav /></div>
                 <div className='main'>

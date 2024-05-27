@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ContestantModel = require('../models/contestant');
 const ManagerModel = require('../models/manager');
+const SoldPlayer = require('../models/soldplayer');
 
 router.post('/createteam/:id', async (req, res) => {
     try {
@@ -66,5 +67,38 @@ router.get('/getplayerdetails/:id', async (req, res) => {
         console.log("Error in Get Manager Details: ", err);
     }
 });
+
+router.post('/deletcontest/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await ContestantModel.findOneAndDelete({ _id: id });
+        await SoldPlayer.deleteMany({ pid: id });
+
+        res.json("done");
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+router.post('/changepasswordcontest/:id', async (req, res) => {
+    try {
+        const {id} = req.params;
+        const { password, newpassword } = req.body;
+        console.log(password);
+        console.log(newpassword)
+        const find = await ContestantModel.findOne({ _id:id });
+        if (find.password === password ) {
+             await ContestantModel.findOneAndUpdate({_id:id},{password:newpassword});
+             res.json("passupdate")
+        }
+        else {
+            res.json('wrong')
+        }
+    } catch (err) {
+        console.log("Verify Manager Error:", err);
+    }
+});
+
 
 module.exports = router;

@@ -7,19 +7,24 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:5000', {
-  transports: ['websocket', 'polling'],
+    transports: ['websocket', 'polling'],
 });
 
 function Home() {
 
     const [players, setPlayers] = useState();
 
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
+    const verifysession = sessionStorage.getItem("id");
 
     useEffect(() => {
+        if (verifysession !== id) {
+            navigate('/');
+            return;
+        }
         getPlayers();
-    }, []);
+    }, [id,verifysession]);
 
     const getPlayers = async () => {
         try {
@@ -30,17 +35,17 @@ function Home() {
         }
     };
 
-    const selectplayer= async (e) =>{
+    const selectplayer = async (e) => {
         try {
             const response = await axios.post(`http://localhost:5000/addauctionplayer/${id}`, e);
             if (response.data === "exist") {
                 alert("Already in Bid");
-            } else if(response.data === "soldorunsold"){
+            } else if (response.data === "soldorunsold") {
                 alert("Player Either Sold or Unsold")
             }
-            else {     
+            else {
                 navigate(`/manager/${id}`)
-                socket.emit('AddAuction', id); 
+                socket.emit('AddAuction', id);
             }
         } catch (err) {
             console.log(err);
@@ -49,7 +54,7 @@ function Home() {
 
     return (
         <>
-            <div className='top-position'><TopNav Title={"Select"}/></div>
+            <div className='top-position'><TopNav Title={"Select"} /></div>
             <div className='d-flex'>
                 <div className='side-position'><SideNav /></div>
                 <div className='main'>

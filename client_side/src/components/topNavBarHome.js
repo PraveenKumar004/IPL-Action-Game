@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
+import { IoPeople } from "react-icons/io5";
 
-const TopNav = ({Title}) => {
+
+const TopNav = ({ Title }) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -25,7 +27,10 @@ const TopNav = ({Title}) => {
                 </Offcanvas.Header>
                 <div className='inside-sidenav'>
                     <NavLink className='sidenav-links d-flex' to='/'>
-                        <div><MdDashboard /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Home</div>
+                        <div><FaHome /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Home</div>
+                    </NavLink>
+                    <NavLink className='sidenav-links d-flex' to='/playerlist'>
+                        <div><IoPeople /></div><div style={{ paddingTop: '5px', paddingLeft: '14px', fontSize: '17px' }}>Player List</div>
                     </NavLink>
                 </div>
             </Offcanvas>

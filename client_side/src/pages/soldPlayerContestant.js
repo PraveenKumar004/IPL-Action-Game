@@ -8,12 +8,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 function Home() {
 
   const { mid } = useParams();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const [teams, setTeams] = useState([]);
 
+  const verifysession = sessionStorage.getItem("id");
+
   useEffect(() => {
+    if (verifysession !== id) {
+      navigate('/');
+      return;
+    }
     getTeams();
-  }, [mid]);
+  }, [mid,verifysession]);
 
   const getTeams = async () => {
     try {
@@ -26,7 +34,7 @@ function Home() {
 
   return (
     <>
-      <div className='top-position'><TopNav Title={"Sold Player"}/></div>
+      <div className='top-position'><TopNav Title={"Sold Player"} /></div>
       <div className='d-flex'>
         <div className='side-position'><SideNav /></div>
         <div className='main'>

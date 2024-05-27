@@ -2,7 +2,7 @@ import React from 'react'
 
 function Nopage() {
   return (
-    <div>Nopage</div>
+    <div>404 Error</div>
   )
 }
 

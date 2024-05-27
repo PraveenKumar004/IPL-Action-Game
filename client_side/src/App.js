@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Manager from './pages/manager'
 import Contestant from './pages/contestant'
 import PlayerList from './pages/playerList'
+import PlayerListHome from './pages/playerListHome'
 import PlayerListContest from './pages/playerListContestant'
 import Select from './pages/select'
 import Teams from './pages/teams'
@@ -27,7 +28,7 @@ const App = () => {
           <Route path='/teampreview/:id' element={<Preview/>}/>
           <Route path='/select/:id' element={<Select/>}/>
           <Route path='/playerlist/:id' element={<PlayerList/>}/>
-          <Route path='/playerlist' element={<PlayerList/>}/>
+          <Route path='/playerlist' element={<PlayerListHome/>}/>
           <Route path='/:mid/playerlist/:id' element={<PlayerListContest/>}/>
           <Route path='/teams/:id' element={<Teams/>}/>
           <Route path='/:mid/teams/:id' element={<TeamContest/>}/>
