@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
                 console.log('Player not found for _id:', id);
             }
         } catch (error) {
-            console.error('Error fetching player data:', error);
+            
         }
     });
 

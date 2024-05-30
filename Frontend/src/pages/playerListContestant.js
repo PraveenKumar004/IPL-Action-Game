@@ -62,6 +62,7 @@ function Home() {
                         <button className='task-btn m-2' onClick={() => setCategory('BAT')}>BAT</button>
                         <button className='task-btn m-2' onClick={() => setCategory('BOWL')}>BOWL</button>
                         <button className='task-btn m-2' onClick={() => setCategory('ALL')}>ALL</button>
+                        <button className='task-btn m-2' onClick={() => setCategory('WK')}>WK</button>
                     </div>
                     <div className='task-search-filter mt-3'>
                         <input

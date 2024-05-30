@@ -38,15 +38,7 @@ function Home() {
       <div className='d-flex'>
         <div className='side-position'><SideNav /></div>
         <div className='main'>
-          <div className='task-search-filter mt-4'>
-          </div>
-          <div className='task-search-filter mt-3'>
-            <button className='task-btn' style={{ marginLeft: '0px' }}>Batsman</button>
-            <button className=' task-btn'>Bowler</button>
-            <button className=' task-btn' style={{ width: '70px' }}>All</button>
-            <button className=' task-btn' style={{ width: '70px' }}>All</button>
-          </div>
-          <div className='task-list mt-4'>
+          <div className='task-list mt-5'>
             <div className='tasks-body'>
               <div className=' task_title pb-3 pt-4' style={{ fontSize: '20px', color: '#0051ad', fontWeight: '500' }}>Players List</div>
               <div className='task_body'>
