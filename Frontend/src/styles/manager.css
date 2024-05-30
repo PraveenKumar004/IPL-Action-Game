@@ -1,0 +1,142 @@
+.manager-body{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.manager-body-left{
+    width: 73%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.manager-body-right{
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.inside-chat{
+    min-height: 200px;
+    max-height: 500px;
+    width: 95%;
+    display: flex;
+    flex-direction: column-reverse;
+    box-shadow: rgba(3, 101, 214, 0.168) 0px 0px 0px 3px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.inside-chat::-webkit-scrollbar {
+    display: none;
+  }
+.chat-team{
+    width: fit-content;
+    background-color: #0051ad;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 12px;
+}
+.chat-message{
+    width: fit-content;
+    background-color: rgba(30, 30, 30, 0.097);
+    border-radius: 5px;
+    color: #000;
+    font-size: 15px;
+}
+.chat-button{
+    width: fit-content;
+    background-color: #0051ad;
+    border: none;
+    color: #ffffff;
+    border: 1px solid #0051ad;
+    width: 18%;
+}
+.chat-input{
+    width: fit-content;
+    background-color: #ffffff;
+    border: none;
+    border: 1px solid #00000082;
+    width: 80%;
+}
+.play-show{
+    width: 80%;
+    min-height: 150px;
+    max-height: fit-content;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.inside-show{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.show-play{
+    font-size: 28px;
+    font-weight: 500;
+}
+.play-show-2{
+    width: 80%;
+    min-height: 150px;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.play-show-3{
+    width: 80%;
+    min-height: 50px;
+    max-height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+.auction-btn{
+    background-color: #0051ad;
+    color: #ffffff;
+    padding: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.bid-button{
+    font-size: 22px;
+    font-weight: 500;
+    background-color: #0051ad;
+    color: #ffffff;
+    padding: 12px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+}
+@media screen and (max-width:1200px) {  
+    .manager-body-right{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width:1000px) {
+    .manager-body-left{
+        width: 100%;
+    }
+    .play-show{
+        width: 90%;
+    }
+    .show-play{
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
